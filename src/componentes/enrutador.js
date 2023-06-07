@@ -2,7 +2,7 @@ export const enrutador = {
 
   // Objeto (diccionario) con todas las rutas y su vista asociada
   rutas: {
-    home: import('../vistas/home.js'),
+    home: import('../vistas/homeVista.js'),
     // Usuarios
     adminUsuarios: import('../vistas/admin/adminVista.js'),
     registro: import('../vistas/registroVista.js'),
@@ -10,6 +10,9 @@ export const enrutador = {
     // Proyectos
     proyectos: import('../vistas/proyectos/proyectosVista.js'),
     nuevoProyecto: import('../vistas/proyectos/nuevoProyectoVista.js')
+    /* editarProyecto: import('../vistas/proyectos/editarProyectoVista.js'),
+    detalleProyecto: import('../vistas/proyectos/detalleProyectoVista.js'),
+    misProyectos: import('../vistas/proyectos/misProyectosVista.js') */
   },
 
   // Método que obtiene la ruta del navegador
@@ -21,7 +24,9 @@ export const enrutador = {
     const parametro = pathCompleto.split('/')[2]
 
     // (Usamos las sintaxix objeto[propiedad]) porque el nombre de la propiedad lo tenemos en una variable.)
+    console.log(path)
     const componenteVista = await enrutador.rutas[path]
+    console.log(componenteVista)
     // Si existe la vista la podremos cargar
     if (componenteVista) {
       try {
